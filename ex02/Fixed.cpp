@@ -6,7 +6,7 @@
 /*   By: svanmarc <@student.42perpignan.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 20:27:34 by svanmarc          #+#    #+#             */
-/*   Updated: 2024/02/20 16:58:00 by svanmarc         ###   ########.fr       */
+/*   Updated: 2024/02/23 08:54:40 by svanmarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,14 +101,14 @@ bool Fixed::operator!=(const Fixed &src) const
 Fixed &Fixed::operator++() // (++a)
 {
     _value++;     // increment the value
-    return *this; // return a reference to the object
+    return *this; // return a reference to the current object
 }
 
 Fixed Fixed::operator++(int) // (a++)
 {
-    Fixed tmp(*this); // create a new Fixed object
+    Fixed tmp(*this); // create a temporary copy of the current object
     operator++();     // call the prefix operator to increment the value
-    return tmp;       // return a new Fixed object
+    return tmp;       // return the temporary object which contains the old value
 }
 
 Fixed &Fixed::operator--()
