@@ -6,13 +6,13 @@
 /*   By: svanmarc <@student.42perpignan.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 20:27:34 by svanmarc          #+#    #+#             */
-/*   Updated: 2024/02/13 08:43:19 by svanmarc         ###   ########.fr       */
+/*   Updated: 2024/02/20 16:58:00 by svanmarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-/**************constructors*********************************/
+/**************constructors & destructor**********************/
 
 Fixed::Fixed() : _value(0) {}
 
@@ -28,11 +28,10 @@ Fixed::Fixed(const float value)
     _value = roundf(value * (1 << _fractionalBits));
 }
 
-/**************destructor**********************************/
-
 Fixed::~Fixed() {}
 
 /**************affectattion operator**********************/
+// return a reference to the object
 
 Fixed &Fixed::operator=(const Fixed &src)
 {
@@ -42,6 +41,7 @@ Fixed &Fixed::operator=(const Fixed &src)
 }
 
 /**************arithmetic operators**********************/
+// return a new Fixed object
 
 Fixed Fixed::operator+(const Fixed &src) const
 {
@@ -64,6 +64,7 @@ Fixed Fixed::operator/(const Fixed &src) const
 }
 
 /**************comparison operators**********************/
+// return a boolean
 
 bool Fixed::operator>(const Fixed &src) const
 {
@@ -97,17 +98,17 @@ bool Fixed::operator!=(const Fixed &src) const
 
 /**************increment and decrement operators**********************/
 
-Fixed &Fixed::operator++()
+Fixed &Fixed::operator++() // (++a)
 {
-    _value++;
-    return *this;
+    _value++;     // increment the value
+    return *this; // return a reference to the object
 }
 
-Fixed Fixed::operator++(int)
+Fixed Fixed::operator++(int) // (a++)
 {
-    Fixed tmp(*this);
-    operator++();
-    return tmp;
+    Fixed tmp(*this); // create a new Fixed object
+    operator++();     // call the prefix operator to increment the value
+    return tmp;       // return a new Fixed object
 }
 
 Fixed &Fixed::operator--()
@@ -150,7 +151,7 @@ Fixed &Fixed::min(Fixed &a, Fixed &b)
     return (a < b) ? a : b;
 }
 
- const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
 {
     return (a < b) ? a : b;
 }
