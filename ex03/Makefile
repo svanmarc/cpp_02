@@ -6,7 +6,7 @@
 #    By: svanmarc <@student.42perpignan.fr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 09:06:31 by svanmarc          #+#    #+#              #
-#    Updated: 2024/02/13 09:08:31 by svanmarc         ###   ########.fr        #
+#    Updated: 2024/02/23 11:53:56 by svanmarc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -Wno-unused-function
 
-SRC = main.cpp Fixed.cpp Point.cpp
+SRC = main.cpp Fixed.cpp Point.cpp bsp.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
